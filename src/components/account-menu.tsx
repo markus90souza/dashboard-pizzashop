@@ -25,7 +25,7 @@ export const AccountMenu: FC = () => {
       </DropdownMenuTrigger>
 
       <DropdownMenuContent align="end" className="w-56">
-        <DropdownMenuLabel>
+        <DropdownMenuLabel className="flex flex-col">
           <span>Marcos de Souza</span>
           <span className="text-sm font-normal text-muted-foreground">
             m@gmail.com
