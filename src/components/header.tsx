@@ -3,6 +3,7 @@ import { FC } from 'react'
 
 import { Separator } from '@/components/ui/separator'
 
+import { AccountMenu } from './account-menu'
 import { NavLink } from './nav-link'
 import { ThemeToggle } from './theme-toggle'
 
@@ -28,6 +29,7 @@ export const Header: FC = () => {
 
         <div className="ml-auto flex items-center gap-2">
           <ThemeToggle />
+          <AccountMenu />
         </div>
       </div>
     </div>
