@@ -21,7 +21,7 @@ export const Header: FC = () => {
             Inicio
           </NavLink>
 
-          <NavLink to={''}>
+          <NavLink to={'/orders'}>
             <UtensilsCrossed className="h-4 w-4" />
             Pedidos
           </NavLink>
