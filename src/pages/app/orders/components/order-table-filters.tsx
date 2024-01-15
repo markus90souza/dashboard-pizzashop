@@ -17,7 +17,7 @@ export const OrderTableFilters: FC = () => {
       <span className="text-sm font-semibold">Filtros</span>
       <Input type="search" placeholder="Id do pedido" className="h-8 w-auto" />
       <Input type="search" placeholder="nome do cliente" className="h-8 w-80" />
-      <Select>
+      <Select defaultValue={'all'}>
         <SelectTrigger className="h-8 w-[180px]">
           <SelectValue />
         </SelectTrigger>
