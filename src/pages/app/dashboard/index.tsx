@@ -5,6 +5,8 @@ import { DayOrdersAmountCard } from './components/day-orders-amount-card'
 import { MonthCanceledOrdersAmountCard } from './components/month-canceled-orders-amount-card'
 import { MonthOrdersAmountCard } from './components/month-orders-amount-card'
 import { MonthRevenueCard } from './components/month-revenue-card'
+import { PopularProductsChart } from './components/popular-products-chart'
+import { RevenueChart } from './components/revenue-chart'
 
 export const Dashboard: FC = () => {
   return (
@@ -17,6 +19,11 @@ export const Dashboard: FC = () => {
           <MonthOrdersAmountCard />
           <DayOrdersAmountCard />
           <MonthCanceledOrdersAmountCard />
+        </div>
+
+        <div className="grid grid-cols-9 gap-4">
+          <RevenueChart />
+          <PopularProductsChart />
         </div>
       </div>
     </>
