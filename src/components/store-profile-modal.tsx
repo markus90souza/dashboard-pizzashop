@@ -29,7 +29,7 @@ export const StoreProfileModal: FC = () => {
     queryFn: getManagedRestaurant,
   })
 
-  const { register, handleSubmit } = useForm<StoreProfileData>({
+  const { register } = useForm<StoreProfileData>({
     resolver: zodResolver(storeProfileSchema),
     values: {
       name: managedRestaurnat?.name ?? '',
