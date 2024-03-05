@@ -1,3 +1,4 @@
+import { useMutation } from '@tanstack/react-query'
 import { Loader2 } from 'lucide-react'
 import { FC } from 'react'
 import { Helmet } from 'react-helmet-async'
@@ -6,6 +7,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { toast } from 'sonner'
 import { z } from 'zod'
 
+import { registerRestaurant } from '@/api/register-restaurant'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
@@ -13,8 +15,8 @@ import { Label } from '@/components/ui/label'
 const schema = z.object({
   restaurantName: z.string(),
   managerName: z.string(),
-  phone: z.string(),
   email: z.string().email(),
+  phone: z.string(),
 })
 type SignUpFormData = z.infer<typeof schema>
 
@@ -27,15 +29,23 @@ export const SignUp: FC = () => {
 
   const navigate = useNavigate()
 
+  const { mutateAsync: createRestaurant } = useMutation({
+    mutationFn: registerRestaurant,
+  })
+
   const handleSignUp = async (data: SignUpFormData) => {
-    console.log(data)
-    await new Promise((resolve) => setTimeout(resolve, 2000))
+    await createRestaurant({
+      restaurantName: data.restaurantName,
+      managerName: data.managerName,
+      email: data.email,
+      phone: data.phone,
+    })
 
     try {
       toast.success('Estabelecimento cadastrado com sucesso', {
         action: {
           label: 'Acessar painel',
-          onClick: () => navigate('/sign-in'),
+          onClick: () => navigate(`/sign-in?email=${data.email}`),
         },
       })
     } catch {

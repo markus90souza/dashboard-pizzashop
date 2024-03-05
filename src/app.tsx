@@ -6,10 +6,9 @@ import { Helmet, HelmetProvider } from 'react-helmet-async'
 import { RouterProvider } from 'react-router-dom'
 
 import { Toaster } from '@/components/ui/sonner'
-
-import { queryClient } from './lib/react-query'
-import { ThemeProvider } from './providers/theme-provider'
-import { router } from './routes'
+import { queryClient } from '@/lib/react-query'
+import { ThemeProvider } from '@/providers/theme-provider'
+import { router } from '@/routes'
 
 export const App: FC = () => {
   return (
